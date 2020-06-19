@@ -13,7 +13,7 @@ import store, { history } from './store';
 const AppRouter = () => {
   return(
     <Provider store={ store }>
-      <BrowserRouter history={ history }>
+      <BrowserRouter history={ history } basename={process.env.PUBLIC_URL}>
         <App />
       </BrowserRouter>
     </Provider>
