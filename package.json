@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": ":) ",
   "scripts": {
-    "build:webpack": "NODE_ENV=production webpack --config webpack.config.prod.js",
+    "build:webpack": "webpack --config webpack.prod.js",
     "build": "npm run clean && npm run build:webpack",
     "test": "NODE_ENV=production mocha './tests/**/*.spec.js' --compilers js:babel-core/register",
     "clean": "rimraf dist",
     "start": "node devServer.js",
     "tunnel": "browser-sync start --proxy localhost:7770 --tunnel wesbos",
-    "predeploy": "npm build",
-    "deploy": "gh-pages -d build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,7 @@
   },
   "author": "Wes Bos",
   "license": "MIT",
-  "homepage": "https://wanicepatel1210.github.io/reduxstagram/",
+  "homepage": "https://wanicepatel1210.github.io/reduxstagram",
   "dependencies": {
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.1.0",
@@ -34,6 +34,7 @@
     "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-react": "^7.20.0",
     "express": "^4.17.1",
+    "gh-pages": "^3.0.0",
     "raven-js": "^3.27.2",
     "react": "^16.13.1",
     "react-addons-css-transition-group": "^15.6.2",
@@ -58,6 +59,8 @@
     "expect": "^26.0.1",
     "expect-jsx": "^5.0.0",
     "mocha": "^7.2.0",
-    "react-addons-test-utils": "^15.6.2"
+    "react-addons-test-utils": "^15.6.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-merge": "^4.2.2"
   }
 }
